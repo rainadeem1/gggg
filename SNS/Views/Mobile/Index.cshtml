@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewBag.Title = "Mobile";
+}
+
+
+<div class="row">
+    <div class="col-md-6">
+
+        <div class="panel panel-box panel-default">
+            <div class="panel-heading">
+                SEND NEW MESSAGE
+            </div>
+            <div class="panel-body">
+                @Html.Partial("~/Views/Mobile/_sendMsg.cshtml")
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="panel panel-box panel-default">
+            <div class="panel-heading">
+              PORT SETTING
+            </div>
+            <div class="panel-body">
+                @Html.Partial("~/Views/Mobile/_portSetting.cshtml")
+            </div>
+        </div>
+
+
+
+        <div class="panel panel-box panel-default">
+            <div class="panel-heading">
+               SAVE MESSAGES 
+                <button type="button" class="btn btn-info btn-sm" id="btn-model-new" data-toggle="modal" data-target="#myModal">New</button>
+            </div>
+            <div class="panel-body">
+               @Html.Action("Allmsgs", "Mobile")
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" id="modal-title"></h4>
+            </div>
+            <div id="model-new"></div>
+        </div>
+
+    </div>
+</div>
+
+
+
+@section script{
+
+<script src="~/Content/js/Validation/jquery.validate.js"></script>
+   <script>
+       $(function () {
+           $('#frm-send').validate({ // initialize the plugin
+               rules: {                   
+                   msg: {
+                       required: true,
+                       minlength: 4,
+                       maxlength: 135,
+                   },
+               },
+
+           });
+           $("#btn-model-new").click(function () {
+               $("#modal-title").text("NEW MESSAGE");
+               New();
+           });
+           $(".del").click(function () {
+               var cnfrm = confirm("Do you want to delete This Message");
+               if (cnfrm == true) {
+                   var id = $(this).attr("data-id");
+                   window.location.href = '/Mobile/Delete?id='+id;
+               }
+           });
+           
+           $(".msg-title").click(function () {
+               $.ajax({
+                   url: '/api/Mobile',
+                   data: { "port": $(this).text() },
+                   success: function (result) {
+                       if (result != null) {
+                           $("#msg").empty();
+                           $("#msg").val(result);
+                          
+                       }
+                   }
+               });
+             //  alert($(this).text());
+           });
+
+           function New() {
+               $.ajax({
+                   url: '/Mobile/newORupdate',
+                   success: function (result) {
+                       if (result != null) {
+                           $("#model-new").empty();
+                           $("#model-new").html(result);
+                       }
+                   }
+               });
+           }
+          
+       });
+    </script>
+    }
+@section style{
+<link href="~/Content/js/Validation/css/screen.css" rel="stylesheet" />
+   
+
+    }

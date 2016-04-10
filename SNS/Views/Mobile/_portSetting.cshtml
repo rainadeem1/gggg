@@ -1,0 +1,42 @@
+﻿
+<h3> <span style="color:green">   Current Port is @SNS.DAL.MobileHandler.Message("Port").Message </span></h3>
+@using (Html.BeginForm("ChangePort", "Mobile", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>
+                <div class="form-group">
+                    <label>Select Port For Change</label>
+                    <div class="input-group">
+                        @Html.DropDownList("port", new List<SelectListItem>
+                       {
+
+            new SelectListItem { Text = "COM1", Value = "COM1",Selected=true },
+            new SelectListItem { Text = "COM2", Value = "COM2"},
+            new SelectListItem { Text = "COM3", Value = "COM3"},
+            new SelectListItem { Text = "COM4", Value = "COM4" },
+            new SelectListItem { Text = "COM5", Value = "COM5" },
+            new SelectListItem { Text = "COM6", Value = "COM6" },
+            new SelectListItem { Text = "COM7", Value = "COM7" },
+            new SelectListItem { Text = "COM8", Value = "COM8" },
+            new SelectListItem { Text = "COM9", Value = "COM9" },
+            new SelectListItem { Text = "COM10", Value = "COM10" },
+            new SelectListItem { Text = "COM11", Value = "COM11" },
+            new SelectListItem { Text = "COM12", Value = "COM12" },
+            new SelectListItem { Text = "COM13", Value = "COM13" },
+            new SelectListItem { Text = "COM14", Value = "COM14" },
+            new SelectListItem { Text = "COM15", Value = "COM15" }
+               }, new { @class = "form-control chosen" })
+
+                    </div>
+                </div>
+            </td>
+            <td>
+                <input type="submit" class="btn btn-block btn-success" value="SAVE" />
+
+            </td>
+        </tr>
+    </table>
+
+
+}

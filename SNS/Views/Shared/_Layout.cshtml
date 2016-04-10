@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Application</title>
+
+    <link href="~/Content/css/jquery/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/fontawesome/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/css/summernote/summernote.css" rel="stylesheet" />
+    <link href="~/Content/css/codemirror/codemirror.css" rel="stylesheet" />
+    <link href="~/Content/css/nvd3/nv.d3.css" rel="stylesheet" />
+    <link href="~/Content/css/mcustomscrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" />
+
+    <link href="~/Content/css/blueimp/blueimp-gallery.min.css" rel="stylesheet" />
+    <link href="~/Content/css/rickshaw/rickshaw.css" rel="stylesheet" />
+    <link href="~/Content/css/dropzone/dropzone.css" rel="stylesheet" />
+    <link href="~/Content/css/animate/animate.min.css" rel="stylesheet" />
+
+    <link href="~/Content/css/theme-default.css" rel="stylesheet" />
+    @RenderSection("style", false)
+</head>
+<body>
+   
+    <!-- START PAGE CONTAINER -->
+    <div class="page-container">
+
+        <!-- START PAGE SIDEBAR -->
+        @Html.Partial("~/views/shared/_pageSidebar.cshtml")
+        <!-- END PAGE SIDEBAR -->
+        <!-- PAGE CONTENT -->
+        <div class="page-content">
+
+            <!-- START X-NAVIGATION VERTICAL -->
+            <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
+                <!-- TOGGLE NAVIGATION -->
+                <li class="xn-icon-button">
+                    <a href="#" class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
+                </li>
+                <!-- END TOGGLE NAVIGATION -->
+                <!-- SEARCH -->
+               @*<li class="xn-search">
+                    <form role="form">
+                        <input type="text" name="search" placeholder="Search..." />
+                    </form>
+                </li>*@
+                <!-- END SEARCH -->
+                <!-- SIGN OUT -->
+                <li class="xn-icon-button pull-right">
+                    <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"></span></a>
+                </li>
+                <!-- END SIGN OUT -->
+                <!-- MESSAGES -->
+           
+                <!-- END MESSAGES -->
+                <!-- TASKS -->
+           @Html.Partial("~/views/shared/_notifications.cshtml")
+                <!-- END TASKS -->
+            </ul>
+            <!-- END X-NAVIGATION VERTICAL -->
+            <!-- START BREADCRUMB -->
+            <ul class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li class="active">Dashboard</li>
+            </ul>
+            <!-- END BREADCRUMB -->
+            <!-- PAGE CONTENT WRAPPER -->
+            @if (SNS.DAL.Shared.Message != null)
+            {
+                <div class="alert alert-warning alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    @*<h4><i class="icon fa fa-warning"></i> Alert!</h4>*@
+                    @SNS.DAL.Shared.Message
+                </div>
+                SNS.DAL.Shared.Message = null;
+            }
+            @RenderBody()
+            
+            <!-- END PAGE CONTENT WRAPPER -->
+        </div>
+        <!-- END PAGE CONTENT -->
+    </div>
+    <!-- END PAGE CONTAINER -->
+    <!-- MESSAGE BOX-->
+    <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
+        <div class="mb-container">
+            <div class="mb-middle">
+                <div class="mb-title"><span class="fa fa-sign-out"></span> Log <strong>Out</strong> ?</div>
+                <div class="mb-content">
+                    <p>Are you sure you want to log out?</p>
+                    <p>Press No if you want to continue. Press Yes to logout current user.</p>
+                </div>
+                <div class="mb-footer">
+                    <div class="pull-right">
+                        <a href="@Url.Action("logout","login")" class="btn btn-success btn-lg">Yes</a>
+                        <button class="btn btn-default btn-lg mb-control-close">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MESSAGE BOX-->
+    <!-- START PRELOADS -->
+    <audio id="audio-alert" src="~/Content/audio/alert.mp3" preload="auto"></audio>
+    <audio id="audio-fail" src="~/Content/audio/fail.mp3" preload="auto"></audio>
+    <!-- END PRELOADS -->
+    <!-- START SCRIPTS -->
+    <!-- START PLUGINS -->
+    <script type="text/javascript" src="~/Content/js/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Content/js/plugins/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="~/Content/js/plugins/bootstrap/bootstrap.min.js"></script>
+    <!-- END PLUGINS -->
+    <!-- START THIS PAGE PLUGINS-->
+    @*<script type='text/javascript' src='~/Content/js/plugins/icheck/icheck.min.js'></script>*@
+    <script type="text/javascript" src="~/Content/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+    <script type="text/javascript" src="~/Content/js/plugins/scrolltotop/scrolltopcontrol.js"></script>
+
+    <script type="text/javascript" src="~/Content/js/plugins/morris/raphael-min.js"></script>
+    <script type="text/javascript" src="~/Content/js/plugins/morris/morris.min.js"></script>
+    <script type="text/javascript" src="~/Content/js/plugins/rickshaw/d3.v3.js"></script>
+
+    <script type='text/javascript' src='~/Content/js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js'></script>
+    <script type='text/javascript' src='~/Content/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js'></script>
+    <script type='text/javascript' src='~/Content/js/plugins/bootstrap/bootstrap-datepicker.js'></script>
+    <script type="text/javascript" src="~/Content/js/plugins/owl/owl.carousel.min.js"></script>
+
+    <script type="text/javascript" src="~/Content/js/plugins/moment.min.js"></script>
+
+    <!-- END THIS PAGE PLUGINS-->
+    <!-- START TEMPLATE -->
+    
+    <script type="text/javascript" src="~/Content/js/plugins.js"></script>
+    <script type="text/javascript" src="~/Content/js/actions.js"></script>
+    @RenderSection("script", false)
+
+
+    <input type="hidden" value="@ViewBag.FaculityID" id="txtFaculityID" />
+
+    @if (ViewBag.type == "Teacher")
+    {
+        <script>
+        $(function () {
+            var TeacherID = $("#txtFaculityID").val();
+           
+            setInterval(function () {
+                $.ajax({
+                    url: '/teacher/UnApproveStudentCourses',
+                    data: { "TeacherID": TeacherID },
+                    dataType: 'json',
+                    success: function (result) {
+                        if (result != 0) {
+                            $("#notifi-body").empty();
+                            $("#noti-no").text(result.length);
+                            $.each(result, function (index, element) {
+                               // var date = new Date(element.Date);
+                                $("#notifi-body").append("<a class='list-group-item' href='/Student/Details/" + element.StudentID + "'><strong >Roll Number : " +
+                              element.RollNo + "</strong><div class='active'><small class='text-muted'> </small></div></a>");
+                            });
+                        }
+                    }
+                });
+            }, 5000);
+        });
+        </script>
+    }
+    
+</body>
+</html>

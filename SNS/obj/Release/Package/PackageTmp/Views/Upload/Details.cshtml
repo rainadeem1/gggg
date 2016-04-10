@@ -1,0 +1,58 @@
+﻿@model SNS.Models.Upload
+
+@{
+    ViewBag.Title = "Details";
+    string ext = SNS.DAL.UploadsHandler.FileExtension((string)Model.FileType);
+}
+
+<input type="hidden" value="@Model.Id" id="FileID" />
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <tr>
+                <th>Title</th>
+                <td>@Model.FileName</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>@Model.Description</td>
+            </tr>
+            <tr>
+                <th>File Type</th>
+                <td><img src="@ext" height="50" width="50" class="img-text" />   </td>
+            </tr>
+            <tr>
+                <th></th>
+                <td><a class="btn btn-success" href="@Model.FilePath">Download</a>   </td>
+            </tr>
+        </table>
+    </div>
+    @Html.Action("Comments", "upload")
+</div>
+
+
+@section script{
+    <script>
+        $(function () {
+            $('#UploadID').val($('#FileID').val());
+            $('#Save').click(function () {
+                var form = $('#frm-comment').serialize();
+                // alert(form);
+                $.ajax({
+                    url: '/api/Comments/New',
+                    type:'POST',
+                    data: form,
+                    success: function (result) {
+                        location.reload(true)
+                    }
+                });
+
+                return false;
+               
+            });
+              
+       
+        });
+    </script>
+    
+    }

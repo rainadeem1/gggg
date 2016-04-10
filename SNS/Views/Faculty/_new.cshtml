@@ -1,0 +1,15 @@
+﻿@model SNS.Models.Faculty
+
+<div class="form-horizontal">
+    <h4>  @ViewBag.FacultyTitle</h4>
+    <hr />
+    @Html.HiddenFor(m=>m.Id)
+    <div class="form-group">
+        @Html.Label("Designation", htmlAttributes: new { @class = "control-label col-md-4" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.DesignationID,ViewBag.Des as List<SelectListItem>, new { @class = "form-control" })
+          
+         
+        </div>
+    </div>
+</div>

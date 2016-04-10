@@ -1,0 +1,49 @@
+﻿<li class="active">
+    <a href="@Url.Action("index","Home")"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>
+</li>
+
+<li class="xn-openable">
+    <a href="#"><span class="fa fa-cogs"></span> <span class="xn-text">Designation</span></a>
+    <ul>
+        <li><a href="@Url.Action("new","Designation")"><span class="fa fa-heart"></span> New</a></li>
+ 
+
+    </ul>
+</li>
+
+<li class="xn-openable">
+    <a href="#"><span class="fa fa-cogs"></span> <span class="xn-text">Course</span></a>
+    <ul>
+        <li><a href="@Url.Action("courses","teacher")"><span class="fa fa-heart"></span> New</a></li>
+        <li><a href="@Url.Action("CoursesAll", "teacher")"><span class="fa fa-cogs"></span> List</a></li>
+
+    </ul>
+</li>
+
+
+
+<li class="xn-openable">
+    <a href="#"><span class="fa fa-cogs"></span> <span class="xn-text">Teacher</span></a>
+    <ul>
+        <li><a href="@Url.Action("index","teacher")"><span class="fa fa-heart"></span> New</a></li>
+      
+
+    </ul>
+</li>
+
+<li class="xn-openable">
+    <a href="#"><span class="fa fa-cogs"></span> <span class="xn-text">Students</span></a>
+    <ul>
+        @*<li><a href="@Url.Action("index","student")"><span class="fa fa-heart"></span> New</a></li>*@
+        <li><a href="@Url.Action("all","student")"><span class="fa fa-cogs"></span> List</a></li>
+
+    </ul>
+</li>
+<li class="xn-openable">
+    <a href="#"><span class="fa fa-cogs"></span> <span class="xn-text">Lectures</span></a>
+    <ul>
+        <li><a href="@Url.Action("new","upload")"><span class="fa fa-heart"></span> New</a></li>
+        <li><a href="@Url.Action("all","upload")"><span class="fa fa-cogs"></span> List</a></li>
+
+    </ul>
+</li>

@@ -1,0 +1,1195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CourseMetarialModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Courses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Code" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Designations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="30" />
+          <Property Name="Description" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Faculties">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DesignationID" Type="int" Nullable="false" />
+          <Property Name="PersonID" Type="int" Nullable="false" />
+          <Property Name="TypeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FacultyTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Mobile">
+          <Key>
+            <PropertyRef Name="Title" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Message" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="Notifications">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="550" />
+          <Property Name="To_" Type="varchar" MaxLength="50" />
+          <Property Name="From_" Type="int" />
+          <Property Name="PersonID" Type="int" />
+          <Property Name="ReadStatus" Type="bit" />
+          <Property Name="Date" Type="date" />
+        </EntityType>
+        <EntityType Name="Persons">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="30" />
+          <Property Name="LastName" Type="varchar" MaxLength="30" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="Address" Type="varchar" MaxLength="150" />
+          <Property Name="Picture" Type="varchar(max)" />
+          <Property Name="PersonType" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="StudentCourses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudetentID" Type="int" Nullable="false" />
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="Approval" Type="bit" />
+        </EntityType>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RollNo" Type="varchar" MaxLength="20" />
+          <Property Name="PersonID" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TeacherCourses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="FacultyID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UploadComments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UploadID" Type="int" />
+          <Property Name="PersonID" Type="int" />
+          <Property Name="Comment" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="UploadNotifications">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UploadID" Type="int" />
+          <Property Name="StudentID" Type="int" />
+          <Property Name="ReadStatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="Uploads">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FileName" Type="varchar" MaxLength="50" />
+          <Property Name="FileType" Type="varchar" MaxLength="10" />
+          <Property Name="FilePath" Type="varchar(max)" />
+          <Property Name="CourseID" Type="int" />
+          <Property Name="FacultyID" Type="int" />
+          <Property Name="Timee" Type="datetime" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="30" />
+          <Property Name="Password" Type="varchar" MaxLength="30" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="PersonID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Faculties_Designations">
+          <End Role="Designations" Type="Self.Designations" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Faculties" Type="Self.Faculties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Designations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Faculties">
+              <PropertyRef Name="DesignationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Faculties_FacultyTypes">
+          <End Role="FacultyTypes" Type="Self.FacultyTypes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Faculties" Type="Self.Faculties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FacultyTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Faculties">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Faculties_Persons">
+          <End Role="Persons" Type="Self.Persons" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Faculties" Type="Self.Faculties" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persons">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Faculties">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Notifications_Persons">
+          <End Role="Persons" Type="Self.Persons" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Notifications" Type="Self.Notifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persons">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Notifications">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentCourses_Courses">
+          <End Role="Courses" Type="Self.Courses" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="StudentCourses" Type="Self.StudentCourses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentCourses">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentCourses_Students">
+          <End Role="Students" Type="Self.Students" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="StudentCourses" Type="Self.StudentCourses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentCourses">
+              <PropertyRef Name="StudetentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_Persons">
+          <End Role="Persons" Type="Self.Persons" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persons">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeacherCourses_Faculties">
+          <End Role="Faculties" Type="Self.Faculties" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TeacherCourses" Type="Self.TeacherCourses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculties">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeacherCourses">
+              <PropertyRef Name="FacultyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UploadComments_Uploads">
+          <End Role="Uploads" Type="Self.Uploads" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UploadComments" Type="Self.UploadComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uploads">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UploadComments">
+              <PropertyRef Name="UploadID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UploadNotifications_Uploads">
+          <End Role="Uploads" Type="Self.Uploads" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UploadNotifications" Type="Self.UploadNotifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uploads">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UploadNotifications">
+              <PropertyRef Name="UploadID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uploads_Courses">
+          <End Role="Courses" Type="Self.Courses" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Uploads" Type="Self.Uploads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Uploads">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uploads_Faculties">
+          <End Role="Faculties" Type="Self.Faculties" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Uploads" Type="Self.Uploads" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculties">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Uploads">
+              <PropertyRef Name="FacultyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Persons">
+          <End Role="Persons" Type="Self.Persons" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persons">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="sp_comments" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="uploadId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_delUplaodNotifications" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_FacultyMail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="email" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_OnUploadNotifications" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="studentID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_OnUploadNotifications_Course" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="courseID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_studentCourses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="studetnID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_StudentMail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="email" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_teacherCourses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TeacherID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_UnApproveStudentCourses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TeacherID" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="CourseMetarialModelStoreContainer">
+          <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Designations" EntityType="Self.Designations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Faculties" EntityType="Self.Faculties" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FacultyTypes" EntityType="Self.FacultyTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mobile" EntityType="Self.Mobile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notifications" EntityType="Self.Notifications" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Persons" EntityType="Self.Persons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentCourses" EntityType="Self.StudentCourses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TeacherCourses" EntityType="Self.TeacherCourses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UploadComments" EntityType="Self.UploadComments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UploadNotifications" EntityType="Self.UploadNotifications" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uploads" EntityType="Self.Uploads" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Faculties_Designations" Association="Self.FK_Faculties_Designations">
+            <End Role="Designations" EntitySet="Designations" />
+            <End Role="Faculties" EntitySet="Faculties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Faculties_FacultyTypes" Association="Self.FK_Faculties_FacultyTypes">
+            <End Role="FacultyTypes" EntitySet="FacultyTypes" />
+            <End Role="Faculties" EntitySet="Faculties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Faculties_Persons" Association="Self.FK_Faculties_Persons">
+            <End Role="Persons" EntitySet="Persons" />
+            <End Role="Faculties" EntitySet="Faculties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Notifications_Persons" Association="Self.FK_Notifications_Persons">
+            <End Role="Persons" EntitySet="Persons" />
+            <End Role="Notifications" EntitySet="Notifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentCourses_Courses" Association="Self.FK_StudentCourses_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="StudentCourses" EntitySet="StudentCourses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentCourses_Students" Association="Self.FK_StudentCourses_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="StudentCourses" EntitySet="StudentCourses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_Persons" Association="Self.FK_Students_Persons">
+            <End Role="Persons" EntitySet="Persons" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeacherCourses_Faculties" Association="Self.FK_TeacherCourses_Faculties">
+            <End Role="Faculties" EntitySet="Faculties" />
+            <End Role="TeacherCourses" EntitySet="TeacherCourses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UploadComments_Uploads" Association="Self.FK_UploadComments_Uploads">
+            <End Role="Uploads" EntitySet="Uploads" />
+            <End Role="UploadComments" EntitySet="UploadComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UploadNotifications_Uploads" Association="Self.FK_UploadNotifications_Uploads">
+            <End Role="Uploads" EntitySet="Uploads" />
+            <End Role="UploadNotifications" EntitySet="UploadNotifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uploads_Courses" Association="Self.FK_Uploads_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="Uploads" EntitySet="Uploads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uploads_Faculties" Association="Self.FK_Uploads_Faculties">
+            <End Role="Faculties" EntitySet="Faculties" />
+            <End Role="Uploads" EntitySet="Uploads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Persons" Association="Self.FK_Users_Persons">
+            <End Role="Persons" EntitySet="Persons" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CourseMetarialModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cours">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="StudentCourses" Relationship="Self.FK_StudentCourses_Courses" FromRole="Courses" ToRole="StudentCourses" />
+          <NavigationProperty Name="Uploads" Relationship="Self.FK_Uploads_Courses" FromRole="Courses" ToRole="Uploads" />
+        </EntityType>
+        <EntityType Name="Designation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Faculties" Relationship="Self.FK_Faculties_Designations" FromRole="Designations" ToRole="Faculties" />
+        </EntityType>
+        <EntityType Name="Faculty">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DesignationID" Type="Int32" Nullable="false" />
+          <Property Name="PersonID" Type="Int32" Nullable="false" />
+          <Property Name="TypeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Designation" Relationship="Self.FK_Faculties_Designations" FromRole="Faculties" ToRole="Designations" />
+          <NavigationProperty Name="FacultyType" Relationship="Self.FK_Faculties_FacultyTypes" FromRole="Faculties" ToRole="FacultyTypes" />
+          <NavigationProperty Name="Person" Relationship="Self.FK_Faculties_Persons" FromRole="Faculties" ToRole="Persons" />
+          <NavigationProperty Name="TeacherCourses" Relationship="Self.FK_TeacherCourses_Faculties" FromRole="Faculties" ToRole="TeacherCourses" />
+          <NavigationProperty Name="Uploads" Relationship="Self.FK_Uploads_Faculties" FromRole="Faculties" ToRole="Uploads" />
+        </EntityType>
+        <EntityType Name="FacultyType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Faculties" Relationship="Self.FK_Faculties_FacultyTypes" FromRole="FacultyTypes" ToRole="Faculties" />
+        </EntityType>
+        <EntityType Name="Mobile">
+          <Key>
+            <PropertyRef Name="Title" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="550" FixedLength="false" Unicode="false" />
+          <Property Name="To_" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="From_" Type="Int32" />
+          <Property Name="PersonID" Type="Int32" />
+          <Property Name="ReadStatus" Type="Boolean" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Person" Relationship="Self.FK_Notifications_Persons" FromRole="Notifications" ToRole="Persons" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PersonType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Faculties" Relationship="Self.FK_Faculties_Persons" FromRole="Persons" ToRole="Faculties" />
+          <NavigationProperty Name="Notifications" Relationship="Self.FK_Notifications_Persons" FromRole="Persons" ToRole="Notifications" />
+          <NavigationProperty Name="Students" Relationship="Self.FK_Students_Persons" FromRole="Persons" ToRole="Students" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_Persons" FromRole="Persons" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="StudentCours">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudetentID" Type="Int32" Nullable="false" />
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="Approval" Type="Boolean" />
+          <NavigationProperty Name="Cours" Relationship="Self.FK_StudentCourses_Courses" FromRole="StudentCourses" ToRole="Courses" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_StudentCourses_Students" FromRole="StudentCourses" ToRole="Students" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RollNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PersonID" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Person" Relationship="Self.FK_Students_Persons" FromRole="Students" ToRole="Persons" />
+          <NavigationProperty Name="StudentCourses" Relationship="Self.FK_StudentCourses_Students" FromRole="Students" ToRole="StudentCourses" />
+        </EntityType>
+        <EntityType Name="TeacherCours">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="FacultyID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Faculty" Relationship="Self.FK_TeacherCourses_Faculties" FromRole="TeacherCourses" ToRole="Faculties" />
+        </EntityType>
+        <EntityType Name="UploadComment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UploadID" Type="Int32" />
+          <Property Name="PersonID" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Upload" Relationship="Self.FK_UploadComments_Uploads" FromRole="UploadComments" ToRole="Uploads" />
+        </EntityType>
+        <EntityType Name="UploadNotification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UploadID" Type="Int32" />
+          <Property Name="StudentID" Type="Int32" />
+          <Property Name="ReadStatus" Type="Boolean" />
+          <NavigationProperty Name="Upload" Relationship="Self.FK_UploadNotifications_Uploads" FromRole="UploadNotifications" ToRole="Uploads" />
+        </EntityType>
+        <EntityType Name="Upload">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FileType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CourseID" Type="Int32" />
+          <Property Name="FacultyID" Type="Int32" />
+          <Property Name="Timee" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cours" Relationship="Self.FK_Uploads_Courses" FromRole="Uploads" ToRole="Courses" />
+          <NavigationProperty Name="Faculty" Relationship="Self.FK_Uploads_Faculties" FromRole="Uploads" ToRole="Faculties" />
+          <NavigationProperty Name="UploadComments" Relationship="Self.FK_UploadComments_Uploads" FromRole="Uploads" ToRole="UploadComments" />
+          <NavigationProperty Name="UploadNotifications" Relationship="Self.FK_UploadNotifications_Uploads" FromRole="Uploads" ToRole="UploadNotifications" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PersonID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Person" Relationship="Self.FK_Users_Persons" FromRole="Users" ToRole="Persons" />
+        </EntityType>
+        <Association Name="FK_StudentCourses_Courses">
+          <End Role="Courses" Type="Self.Cours" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="StudentCourses" Type="Self.StudentCours" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentCourses">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uploads_Courses">
+          <End Role="Courses" Type="Self.Cours" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Uploads" Type="Self.Upload" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Uploads">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Faculties_Designations">
+          <End Role="Designations" Type="Self.Designation" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Faculties" Type="Self.Faculty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Designations">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Faculties">
+              <PropertyRef Name="DesignationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Faculties_FacultyTypes">
+          <End Role="FacultyTypes" Type="Self.FacultyType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Faculties" Type="Self.Faculty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FacultyTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Faculties">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Faculties_Persons">
+          <End Role="Persons" Type="Self.Person" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Faculties" Type="Self.Faculty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persons">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Faculties">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeacherCourses_Faculties">
+          <End Role="Faculties" Type="Self.Faculty" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TeacherCourses" Type="Self.TeacherCours" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculties">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeacherCourses">
+              <PropertyRef Name="FacultyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uploads_Faculties">
+          <End Role="Faculties" Type="Self.Faculty" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Uploads" Type="Self.Upload" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculties">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Uploads">
+              <PropertyRef Name="FacultyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Notifications_Persons">
+          <End Role="Persons" Type="Self.Person" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Notifications" Type="Self.Notification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persons">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Notifications">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_Persons">
+          <End Role="Persons" Type="Self.Person" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Students" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persons">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Students">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Persons">
+          <End Role="Persons" Type="Self.Person" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persons">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentCourses_Students">
+          <End Role="Students" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="StudentCourses" Type="Self.StudentCours" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StudentCourses">
+              <PropertyRef Name="StudetentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UploadComments_Uploads">
+          <End Role="Uploads" Type="Self.Upload" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UploadComments" Type="Self.UploadComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uploads">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UploadComments">
+              <PropertyRef Name="UploadID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UploadNotifications_Uploads">
+          <End Role="Uploads" Type="Self.Upload" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UploadNotifications" Type="Self.UploadNotification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uploads">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UploadNotifications">
+              <PropertyRef Name="UploadID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CourseMetarialEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Courses" EntityType="Self.Cours" />
+          <EntitySet Name="Designations" EntityType="Self.Designation" />
+          <EntitySet Name="Faculties" EntityType="Self.Faculty" />
+          <EntitySet Name="FacultyTypes" EntityType="Self.FacultyType" />
+          <EntitySet Name="Mobiles" EntityType="Self.Mobile" />
+          <EntitySet Name="Notifications" EntityType="Self.Notification" />
+          <EntitySet Name="Persons" EntityType="Self.Person" />
+          <EntitySet Name="StudentCourses" EntityType="Self.StudentCours" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="TeacherCourses" EntityType="Self.TeacherCours" />
+          <EntitySet Name="UploadComments" EntityType="Self.UploadComment" />
+          <EntitySet Name="UploadNotifications" EntityType="Self.UploadNotification" />
+          <EntitySet Name="Uploads" EntityType="Self.Upload" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_StudentCourses_Courses" Association="Self.FK_StudentCourses_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="StudentCourses" EntitySet="StudentCourses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uploads_Courses" Association="Self.FK_Uploads_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="Uploads" EntitySet="Uploads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Faculties_Designations" Association="Self.FK_Faculties_Designations">
+            <End Role="Designations" EntitySet="Designations" />
+            <End Role="Faculties" EntitySet="Faculties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Faculties_FacultyTypes" Association="Self.FK_Faculties_FacultyTypes">
+            <End Role="FacultyTypes" EntitySet="FacultyTypes" />
+            <End Role="Faculties" EntitySet="Faculties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Faculties_Persons" Association="Self.FK_Faculties_Persons">
+            <End Role="Persons" EntitySet="Persons" />
+            <End Role="Faculties" EntitySet="Faculties" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeacherCourses_Faculties" Association="Self.FK_TeacherCourses_Faculties">
+            <End Role="Faculties" EntitySet="Faculties" />
+            <End Role="TeacherCourses" EntitySet="TeacherCourses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uploads_Faculties" Association="Self.FK_Uploads_Faculties">
+            <End Role="Faculties" EntitySet="Faculties" />
+            <End Role="Uploads" EntitySet="Uploads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Notifications_Persons" Association="Self.FK_Notifications_Persons">
+            <End Role="Persons" EntitySet="Persons" />
+            <End Role="Notifications" EntitySet="Notifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_Persons" Association="Self.FK_Students_Persons">
+            <End Role="Persons" EntitySet="Persons" />
+            <End Role="Students" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Persons" Association="Self.FK_Users_Persons">
+            <End Role="Persons" EntitySet="Persons" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentCourses_Students" Association="Self.FK_StudentCourses_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="StudentCourses" EntitySet="StudentCourses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UploadComments_Uploads" Association="Self.FK_UploadComments_Uploads">
+            <End Role="Uploads" EntitySet="Uploads" />
+            <End Role="UploadComments" EntitySet="UploadComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UploadNotifications_Uploads" Association="Self.FK_UploadNotifications_Uploads">
+            <End Role="Uploads" EntitySet="Uploads" />
+            <End Role="UploadNotifications" EntitySet="UploadNotifications" />
+          </AssociationSet>
+          <FunctionImport Name="sp_comments" ReturnType="Collection(CourseMetarialModel.sp_comments_Result)">
+            <Parameter Name="uploadId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_delUplaodNotifications" />
+          <FunctionImport Name="sp_FacultyMail" ReturnType="Collection(CourseMetarialModel.sp_FacultyMail_Result)">
+            <Parameter Name="email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_OnUploadNotifications" ReturnType="Collection(CourseMetarialModel.sp_OnUploadNotifications_Result)">
+            <Parameter Name="studentID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_OnUploadNotifications_Course" ReturnType="Collection(CourseMetarialModel.sp_OnUploadNotifications_Course_Result)">
+            <Parameter Name="courseID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_studentCourses" ReturnType="Collection(CourseMetarialModel.sp_studentCourses_Result)">
+            <Parameter Name="studetnID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_StudentMail" ReturnType="Collection(CourseMetarialModel.sp_StudentMail_Result)">
+            <Parameter Name="email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_teacherCourses" ReturnType="Collection(CourseMetarialModel.sp_teacherCourses_Result)">
+            <Parameter Name="TeacherID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_UnApproveStudentCourses" ReturnType="Collection(CourseMetarialModel.sp_UnApproveStudentCourses_Result)">
+            <Parameter Name="TeacherID" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_comments_Result">
+          <Property Type="Int32" Name="commentId" Nullable="false" />
+          <Property Type="Int32" Name="UploadID" Nullable="true" />
+          <Property Type="Int32" Name="PersonID" Nullable="true" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Comment" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="sp_FacultyMail_Result">
+          <Property Type="Int32" Name="FacultyId" Nullable="false" />
+          <Property Type="String" Name="personType" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="personId" Nullable="false" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Picture" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_OnUploadNotifications_Result">
+          <Property Type="String" Name="FileName" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Timee" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="fileId" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="courseName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="FilePath" Nullable="true" />
+          <Property Type="String" Name="courseCode" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="sp_OnUploadNotifications_Course_Result">
+          <Property Type="String" Name="FileName" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Timee" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="fileId" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="courseName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="FilePath" Nullable="true" />
+          <Property Type="String" Name="courseCode" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="sp_studentCourses_Result">
+          <Property Type="Int32" Name="studentCourseID" Nullable="false" />
+          <Property Type="Int32" Name="courseID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Code" Nullable="true" MaxLength="10" />
+          <Property Type="Boolean" Name="Approval" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_StudentMail_Result">
+          <Property Type="Int32" Name="StudentID" Nullable="false" />
+          <Property Type="String" Name="personType" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Password" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="PersonId" Nullable="false" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Picture" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_teacherCourses_Result">
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="courseID" Nullable="false" />
+          <Property Type="String" Name="Code" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="TeacherCourseID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_UnApproveStudentCourses_Result">
+          <Property Type="Int32" Name="StudenCourseID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Code" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="CourseID" Nullable="false" />
+          <Property Type="String" Name="RollNo" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="StudentID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CourseMetarialModelStoreContainer" CdmEntityContainer="CourseMetarialEntities">
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="CourseMetarialModel.Cours">
+              <MappingFragment StoreEntitySet="Courses">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Designations">
+            <EntityTypeMapping TypeName="CourseMetarialModel.Designation">
+              <MappingFragment StoreEntitySet="Designations">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Faculties">
+            <EntityTypeMapping TypeName="CourseMetarialModel.Faculty">
+              <MappingFragment StoreEntitySet="Faculties">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DesignationID" ColumnName="DesignationID" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FacultyTypes">
+            <EntityTypeMapping TypeName="CourseMetarialModel.FacultyType">
+              <MappingFragment StoreEntitySet="FacultyTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mobiles">
+            <EntityTypeMapping TypeName="CourseMetarialModel.Mobile">
+              <MappingFragment StoreEntitySet="Mobile">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notifications">
+            <EntityTypeMapping TypeName="CourseMetarialModel.Notification">
+              <MappingFragment StoreEntitySet="Notifications">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="To_" ColumnName="To_" />
+                <ScalarProperty Name="From_" ColumnName="From_" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="ReadStatus" ColumnName="ReadStatus" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Persons">
+            <EntityTypeMapping TypeName="CourseMetarialModel.Person">
+              <MappingFragment StoreEntitySet="Persons">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="PersonType" ColumnName="PersonType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentCourses">
+            <EntityTypeMapping TypeName="CourseMetarialModel.StudentCours">
+              <MappingFragment StoreEntitySet="StudentCourses">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StudetentID" ColumnName="StudetentID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="Approval" ColumnName="Approval" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="CourseMetarialModel.Student">
+              <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RollNo" ColumnName="RollNo" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TeacherCourses">
+            <EntityTypeMapping TypeName="CourseMetarialModel.TeacherCours">
+              <MappingFragment StoreEntitySet="TeacherCourses">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="FacultyID" ColumnName="FacultyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UploadComments">
+            <EntityTypeMapping TypeName="CourseMetarialModel.UploadComment">
+              <MappingFragment StoreEntitySet="UploadComments">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UploadID" ColumnName="UploadID" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UploadNotifications">
+            <EntityTypeMapping TypeName="CourseMetarialModel.UploadNotification">
+              <MappingFragment StoreEntitySet="UploadNotifications">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UploadID" ColumnName="UploadID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="ReadStatus" ColumnName="ReadStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uploads">
+            <EntityTypeMapping TypeName="CourseMetarialModel.Upload">
+              <MappingFragment StoreEntitySet="Uploads">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FileType" ColumnName="FileType" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="FacultyID" ColumnName="FacultyID" />
+                <ScalarProperty Name="Timee" ColumnName="Timee" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="CourseMetarialModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_comments" FunctionName="CourseMetarialModel.Store.sp_comments">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CourseMetarialModel.sp_comments_Result">
+                <ScalarProperty Name="commentId" ColumnName="commentId" />
+                <ScalarProperty Name="UploadID" ColumnName="UploadID" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_delUplaodNotifications" FunctionName="CourseMetarialModel.Store.sp_delUplaodNotifications" />
+          <FunctionImportMapping FunctionImportName="sp_FacultyMail" FunctionName="CourseMetarialModel.Store.sp_FacultyMail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CourseMetarialModel.sp_FacultyMail_Result">
+                <ScalarProperty Name="FacultyId" ColumnName="FacultyId" />
+                <ScalarProperty Name="personType" ColumnName="personType" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="personId" ColumnName="personId" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_OnUploadNotifications" FunctionName="CourseMetarialModel.Store.sp_OnUploadNotifications">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CourseMetarialModel.sp_OnUploadNotifications_Result">
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Timee" ColumnName="Timee" />
+                <ScalarProperty Name="fileId" ColumnName="fileId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="courseName" ColumnName="courseName" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="courseCode" ColumnName="courseCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_OnUploadNotifications_Course" FunctionName="CourseMetarialModel.Store.sp_OnUploadNotifications_Course">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CourseMetarialModel.sp_OnUploadNotifications_Course_Result">
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Timee" ColumnName="Timee" />
+                <ScalarProperty Name="fileId" ColumnName="fileId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="courseName" ColumnName="courseName" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="courseCode" ColumnName="courseCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_studentCourses" FunctionName="CourseMetarialModel.Store.sp_studentCourses">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CourseMetarialModel.sp_studentCourses_Result">
+                <ScalarProperty Name="studentCourseID" ColumnName="studentCourseID" />
+                <ScalarProperty Name="courseID" ColumnName="courseID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Approval" ColumnName="Approval" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_StudentMail" FunctionName="CourseMetarialModel.Store.sp_StudentMail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CourseMetarialModel.sp_StudentMail_Result">
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="personType" ColumnName="personType" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_teacherCourses" FunctionName="CourseMetarialModel.Store.sp_teacherCourses">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CourseMetarialModel.sp_teacherCourses_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="courseID" ColumnName="courseID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="TeacherCourseID" ColumnName="TeacherCourseID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_UnApproveStudentCourses" FunctionName="CourseMetarialModel.Store.sp_UnApproveStudentCourses">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CourseMetarialModel.sp_UnApproveStudentCourses_Result">
+                <ScalarProperty Name="StudenCourseID" ColumnName="StudenCourseID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="RollNo" ColumnName="RollNo" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

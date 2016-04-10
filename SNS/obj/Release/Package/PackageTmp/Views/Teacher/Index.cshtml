@@ -1,0 +1,142 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    ViewBag.FacultyTitle = "Admin";
+
+}
+
+<div class="panel panel-warning">
+    <div class="panel-heading ui-draggable-handle">
+        <h3 class="panel-title">New Teacher</h3>
+        <ul class="panel-controls">
+            <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+            <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
+            @*<li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>*@
+            <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
+        </ul>
+    </div>
+
+    @using (Html.BeginForm("save","teacher",FormMethod.Post, new {id="frm-admin", enctype = "multipart/form-data" })) {
+    <div class="panel-body">
+    <div class="row">
+        <div class="col-md-4">
+            @Html.Action("new", "person")
+        </div>
+
+        <div class="col-md-4">
+            @Html.Action("new", "faculty", new { id = "0", title = "Teacher" })
+            <div class="form-group">
+                @Html.Label("Courses", htmlAttributes: new { @class = "control-label col-md-5 text-left" })
+                <div class="col-md-10">
+                    @Html.DropDownList("courses", ViewBag.courses as List<SelectListItem>, new { @class = "form-control chosen", multiple = "multiple", required = "required" })
+                    <div style="color:red" id="error">Please Select Course</div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Picture", htmlAttributes: new { @class = "control-label col-md-5 text-left" })
+                <div class="col-md-10">
+                    <div id="imagePreview"></div>
+                    <input id="uploadFile" type="file" name="image" class="img" />
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            @Html.Action("new", "user",new {id="0" , title = "Login Details" })
+        </div>
+    </div>
+    </div>
+    <div class="panel-footer">
+        <button type="reset" class="btn btn-default">Reset</button>
+        <button type="submit" id="btn-save" class="btn btn-primary pull-right">Save</button>
+    </div>
+    }
+</div>
+
+@section script{
+<script src="~/Content/js/chosen/chosen.jquery.min.js"></script>
+    <script src="~/Content/js/Validation/jquery.validate.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".chosen").chosen();
+            $('#error').hide();
+            $('#btn-save').click(function () {
+                
+                if (!$('#courses').val()) {
+                    $('#error').show();
+                    return false;
+                } else {
+                    $('#error').hide();
+                }
+               
+               
+            });
+            
+                $('#frm-admin').validate({
+                    rules: {
+
+                        FirstName: {
+                            required: true,
+                        },
+                        LastName: {
+                            required: true,
+                        },
+
+                        Phone: {
+                            required: true,
+                        },
+                        Address: {
+                            required: true,
+                        },
+
+                        DesignationID: {
+                            required: true,
+                        },
+                        Email: {
+                            required: true,
+                            email:true,
+                        },
+
+                        Password: {
+                            required: true,
+                        },
+                        Cpass: {
+                            required: true,
+                            equalTo: "#Password"
+                        },
+                    },
+                });
+
+
+
+
+    $("#uploadFile").on("change", function()
+    {
+        var files = !!this.files ? this.files : [];
+        if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+
+        if (/^image/.test( files[0].type)){ // only image file
+            var reader = new FileReader(); // instance of the FileReader
+            reader.readAsDataURL(files[0]); // read the local file
+
+            reader.onloadend = function(){ // set image data as background of div
+                $("#imagePreview").css("background-image", "url("+this.result+")");
+            }
+        }
+    });
+});
+    </script>
+}
+@section style{
+    <link href="~/Content/js/chosen/chosen.min.css" rel="stylesheet" />
+<style>
+    #imagePreview {
+        width: 180px;
+        height: 180px;
+        background-position: center center;
+        background-size: cover;
+        -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+        display: inline-block;
+    }
+</style>
+}

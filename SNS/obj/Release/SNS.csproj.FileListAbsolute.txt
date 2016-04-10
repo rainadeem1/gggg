@@ -1,0 +1,174 @@
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\ApplicationInsights.config
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\roslyn\csc.exe
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\roslyn\vbc.exe
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\roslyn\VBCSCompiler.exe
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\SNS.dll.config
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\SNS.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\SNS.pdb
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\EntityFramework.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\EntityFramework.SqlServer.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\Microsoft.AI.Web.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\Microsoft.ApplicationInsights.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\Newtonsoft.Json.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\System.Net.Http.Formatting.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\System.Web.Helpers.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\System.Web.Http.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\System.Web.Http.WebHost.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\System.Web.Mvc.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\System.Web.Razor.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\System.Web.Webpages.Deployment.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\System.Web.Webpages.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\System.Web.Webpages.Razor.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\EntityFramework.xml
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\EntityFramework.SqlServer.xml
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\Microsoft.AI.Web.xml
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\Microsoft.ApplicationInsights.xml
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\System.Web.Razor.xml
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\System.Web.Webpages.xml
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\System.Web.Webpages.Deployment.xml
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\System.Web.Webpages.Razor.xml
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\System.Web.Helpers.xml
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\System.Web.Mvc.xml
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\Newtonsoft.Json.xml
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\System.Net.Http.Formatting.xml
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\System.Web.Http.xml
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\bin\System.Web.Http.WebHost.xml
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\obj\Release\SNS.csprojResolveAssemblyReference.cache
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\obj\Release\SNS.dll
+C:\Users\it.muzzammil\Desktop\SNS\SNS\SNS\obj\Release\SNS.pdb
+D:\desktop\SNS\SNS\SNS\bin\ApplicationInsights.config
+D:\desktop\SNS\SNS\SNS\bin\roslyn\csc.exe
+D:\desktop\SNS\SNS\SNS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\desktop\SNS\SNS\SNS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\desktop\SNS\SNS\SNS\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\desktop\SNS\SNS\SNS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\desktop\SNS\SNS\SNS\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\desktop\SNS\SNS\SNS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\desktop\SNS\SNS\SNS\bin\roslyn\System.Collections.Immutable.dll
+D:\desktop\SNS\SNS\SNS\bin\roslyn\System.Reflection.Metadata.dll
+D:\desktop\SNS\SNS\SNS\bin\roslyn\vbc.exe
+D:\desktop\SNS\SNS\SNS\bin\roslyn\VBCSCompiler.exe
+D:\desktop\SNS\SNS\SNS\bin\roslyn\VBCSCompiler.exe.config
+D:\desktop\SNS\SNS\SNS\bin\SNS.dll.config
+D:\desktop\SNS\SNS\SNS\bin\SNS.dll
+D:\desktop\SNS\SNS\SNS\bin\SNS.pdb
+D:\desktop\SNS\SNS\SNS\bin\EntityFramework.dll
+D:\desktop\SNS\SNS\SNS\bin\EntityFramework.SqlServer.dll
+D:\desktop\SNS\SNS\SNS\bin\Microsoft.AI.Agent.Intercept.dll
+D:\desktop\SNS\SNS\SNS\bin\Microsoft.AI.DependencyCollector.dll
+D:\desktop\SNS\SNS\SNS\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\desktop\SNS\SNS\SNS\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\desktop\SNS\SNS\SNS\bin\Microsoft.AI.Web.dll
+D:\desktop\SNS\SNS\SNS\bin\Microsoft.AI.WindowsServer.dll
+D:\desktop\SNS\SNS\SNS\bin\Microsoft.ApplicationInsights.dll
+D:\desktop\SNS\SNS\SNS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\desktop\SNS\SNS\SNS\bin\Microsoft.Web.Infrastructure.dll
+D:\desktop\SNS\SNS\SNS\bin\Newtonsoft.Json.dll
+D:\desktop\SNS\SNS\SNS\bin\System.Net.Http.Formatting.dll
+D:\desktop\SNS\SNS\SNS\bin\System.Web.Helpers.dll
+D:\desktop\SNS\SNS\SNS\bin\System.Web.Http.dll
+D:\desktop\SNS\SNS\SNS\bin\System.Web.Http.WebHost.dll
+D:\desktop\SNS\SNS\SNS\bin\System.Web.Mvc.dll
+D:\desktop\SNS\SNS\SNS\bin\System.Web.Razor.dll
+D:\desktop\SNS\SNS\SNS\bin\System.Web.Webpages.Deployment.dll
+D:\desktop\SNS\SNS\SNS\bin\System.Web.Webpages.dll
+D:\desktop\SNS\SNS\SNS\bin\System.Web.Webpages.Razor.dll
+D:\desktop\SNS\SNS\SNS\bin\EntityFramework.xml
+D:\desktop\SNS\SNS\SNS\bin\EntityFramework.SqlServer.xml
+D:\desktop\SNS\SNS\SNS\bin\Microsoft.AI.DependencyCollector.xml
+D:\desktop\SNS\SNS\SNS\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\desktop\SNS\SNS\SNS\bin\Microsoft.AI.Web.xml
+D:\desktop\SNS\SNS\SNS\bin\Microsoft.AI.WindowsServer.xml
+D:\desktop\SNS\SNS\SNS\bin\Microsoft.ApplicationInsights.xml
+D:\desktop\SNS\SNS\SNS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\desktop\SNS\SNS\SNS\bin\System.Web.Razor.xml
+D:\desktop\SNS\SNS\SNS\bin\System.Web.Webpages.xml
+D:\desktop\SNS\SNS\SNS\bin\System.Web.Webpages.Deployment.xml
+D:\desktop\SNS\SNS\SNS\bin\System.Web.Webpages.Razor.xml
+D:\desktop\SNS\SNS\SNS\bin\System.Web.Helpers.xml
+D:\desktop\SNS\SNS\SNS\bin\System.Web.Mvc.xml
+D:\desktop\SNS\SNS\SNS\bin\Newtonsoft.Json.xml
+D:\desktop\SNS\SNS\SNS\bin\System.Net.Http.Formatting.xml
+D:\desktop\SNS\SNS\SNS\bin\System.Web.Http.xml
+D:\desktop\SNS\SNS\SNS\bin\System.Web.Http.WebHost.xml
+D:\desktop\SNS\SNS\SNS\obj\Release\SNS.csprojResolveAssemblyReference.cache
+D:\desktop\SNS\SNS\SNS\obj\Release\SNS.dll
+D:\desktop\SNS\SNS\SNS\obj\Release\SNS.pdb
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\ApplicationInsights.config
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\roslyn\csc.exe
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\roslyn\vbc.exe
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\roslyn\VBCSCompiler.exe
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\SNS.dll.config
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\SNS.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\SNS.pdb
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\EntityFramework.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\EntityFramework.SqlServer.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\Microsoft.AI.Web.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\Microsoft.ApplicationInsights.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\Newtonsoft.Json.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\System.Net.Http.Formatting.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\System.Web.Helpers.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\System.Web.Http.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\System.Web.Http.WebHost.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\System.Web.Mvc.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\System.Web.Razor.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\System.Web.Webpages.Deployment.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\System.Web.Webpages.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\System.Web.Webpages.Razor.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\EntityFramework.xml
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\EntityFramework.SqlServer.xml
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\Microsoft.AI.Web.xml
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\Microsoft.ApplicationInsights.xml
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\System.Web.Razor.xml
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\System.Web.Webpages.xml
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\System.Web.Webpages.Deployment.xml
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\System.Web.Webpages.Razor.xml
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\System.Web.Helpers.xml
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\System.Web.Mvc.xml
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\Newtonsoft.Json.xml
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\System.Net.Http.Formatting.xml
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\System.Web.Http.xml
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\bin\System.Web.Http.WebHost.xml
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\obj\Release\SNS.csprojResolveAssemblyReference.cache
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\obj\Release\SNS.dll
+C:\Users\RAI NADEEM\Desktop\sns projects\new\SNS\SNS\SNS\obj\Release\SNS.pdb

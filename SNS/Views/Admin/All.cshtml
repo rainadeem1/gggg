@@ -1,0 +1,96 @@
+﻿@model IEnumerable<SNS.Models.Faculty>
+
+@{
+    ViewBag.Title = "All";
+}
+<div class="row">
+    <div class="col-lg-12 ">
+        <div class="panel panel-success">
+            <div class="panel-heading ui-draggable-handle">
+                <h3 class="panel-title">Admins</h3>
+            </div>
+
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Designation
+                            </th>
+                            <th>
+                                Phone
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                               <img src="@item.Person.Picture" height="80" , width="80" />
+                            </td>
+                            <td>
+                                @item.Person.FirstName @item.Person.LastName
+                            </td>
+                            <td>
+                                @item.Designation.Title
+                            </td>
+                            <td>
+                                @item.Person.Phone
+                            </td>
+                            <td>
+                                @SNS.DAL.UserHandler.PersonID(item.PersonID).Email
+                            </td>
+                            <td>
+                                <a href="@Url.Action("details","admin", new {id=item.Id })" class="btn-link">Details</a>
+                                <a href="@Url.Action("delete","admin", new {id=item.PersonID })" class="btn-link btn-del">Delete</a>
+                                
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+            <div class="panel-footer">
+                <a href="@Url.Action("index","admin")" class="btn btn-primary pull-right ">New</a>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+@section script{
+    <script src="~/Content/js/datatables/js/jquery.dataTables.js"></script>
+
+    <script>
+        $(function () {
+
+        //    $("#nav-allPro,#nav-pro").addClass("active");
+            //delete message
+            $(".btn-del").click(function () {
+                var c = confirm("Do you want to Delete ?");
+                if (c == true) { }
+                else { return false; }
+            });
+
+            $(".table").dataTable();
+        });
+    </script>
+}
+
+
+

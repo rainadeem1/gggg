@@ -1,0 +1,111 @@
+﻿@model IEnumerable<SNS.Models.Upload>
+
+@{
+    ViewBag.Title = "All";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-success">
+            <div class="panel-heading ui-draggable-handle">
+                <h3 class="panel-title">Lectures</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>
+                                Title
+                            </th>
+                            <th>
+                                Course
+                            </th>
+                            <th>
+                                Teacher
+                            </th>
+                            <th>
+                                Time
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model)
+                    {
+                        string ext = SNS.DAL.UploadsHandler.FileExtension((string)item.FileType);
+                        <tr>
+                            <th>
+                             <img src="@ext" height="50" width="50" class="img-text" />   
+                            </th>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FileName)
+                            </td>
+                            <td>
+                               @if (item.CourseID != null)
+                               {
+                                   var course = SNS.DAL.CourseHandler.ID((int)item.CourseID);
+                                   if (course!=null)
+                                   {
+                                       <span>@course.Name @course.Code</span>
+                                   }
+                               }
+
+                            </td>
+                            <td>
+                                @*@if (item.FacultyID != null)
+                                {
+                                    var Faculty = SNS.DAL.FacultyHandler.ID((int)item.FacultyID);
+                                    if (Faculty != null)
+                                    {
+                                        <span>@Faculty.Person.FirstName @Faculty.Person.LastName</span>
+                                    }
+                                }*@
+                            </td>
+                            <td>
+                               @Html.DisplayFor(modelItem => item.Timee)
+                            </td>
+                           
+                            <td>
+                            <a class="btn btn-success" href="@item.FilePath">Download</a>   
+                                <a class="btn btn-info" href="@Url.Action("Details","upload", new {id=item.Id })">Details</a>  
+                                @if (ViewBag.type!= "Student")
+                                {   
+                                    <a class="btn btn-danger" href="@Url.Action("delete","upload", new {id=item.Id })">Delete</a>
+                                } 
+                               
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+@section script{
+    <script src="~/Content/js/datatables/js/jquery.dataTables.js"></script>
+
+    <script>
+        $(function () {
+
+        //    $("#nav-allPro,#nav-pro").addClass("active");
+            //delete message
+            $(".btn-del").click(function () {
+                var c = confirm("Do you want to Delete ?");
+                if (c == true) { }
+                else { return false; }
+            });
+
+            $(".table").dataTable();
+        });
+    </script>
+}
+
+
+
+
+

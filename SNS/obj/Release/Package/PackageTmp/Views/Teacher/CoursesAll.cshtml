@@ -1,0 +1,48 @@
+﻿@model IEnumerable<SNS.Models.sp_teacherCourses_Result>
+
+@{
+    ViewBag.Title = "CoursesAll";
+}
+
+<h2>Teacher Courses</h2>
+
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            course Name
+        </th>
+        <th>
+          code
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+   
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Code</td>
+                <td>
+                    <a class="btn-del" href="@Url.Action("CoursesDel","teacher", new { id=item.TeacherCourseID})">Delete</a>
+                </td>
+            </tr>
+      
+
+
+}
+
+</table>
+
+@section script{
+    <script>
+        $(function () {
+            $(".btn-del").click(function () {
+                var c = confirm("Do you want to Delete ?");
+                if (c == true) { }
+                else { return false; }
+            });
+        });
+    </script>
+    }

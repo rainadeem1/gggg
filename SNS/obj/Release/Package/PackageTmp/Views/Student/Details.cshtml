@@ -1,0 +1,100 @@
+﻿@model SNS.Models.Student
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="col-lg-12 ">
+    <div class="panel panel-success">
+        <div class="panel-heading ui-draggable-handle">
+            <h3 class="panel-title">Admins</h3>
+        </div>
+        @if (Model != null)
+        {
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-hover">
+                            <tr>
+                                <th>First Name</th>
+                                <td>@Model.Person.FirstName</td>
+                                <th>Last Name</th>
+                                <td>@Model.Person.LastName</td>
+                            </tr>
+                            <tr>
+                                <th>Roll #</th>
+                                <td>@Model.RollNo</td>
+                                <th>ID</th>
+                                <td>@Model.Id</td>
+
+                            </tr>
+                            <tr>
+                                <th>Phone</th>
+                                <td>@Model.Person.Phone</td>
+                                <th>Email</th>
+                                <td>@SNS.DAL.UserHandler.PersonID((int)Model.PersonID).Email</td>
+
+                            </tr>
+                            <tr>
+                                <th >Address</th>
+                                <td colspan="3">@Model.Person.Address</td>
+                                
+
+                            </tr>
+                        </table>
+<h1>Courses</h1>
+                        @using (SNS.Models.CourseMetarialEntities db = new SNS.Models.CourseMetarialEntities())
+                        {
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>Course</th>
+                                    @if (ViewBag.type  == "Teacher")
+                                    {
+                                    <th>Action</th>
+                                    }
+                                </tr>
+
+                                @foreach (var item in db.sp_studentCourses(Model.Id))
+                                {
+                                <tr>
+                                    <td>@item.Name @item.Code</td>
+
+                                    @if (ViewBag.type == "Teacher")
+                                    {
+                                        <th>
+                                            @if (item.Approval==false)
+                                            {
+if (SNS.DAL.TeacherCourseHandler.IsTeacherCourse(item.courseID, ViewBag.FaculityID))
+{
+    <a href="@Url.Action("CourseApproval","student", new {StudentCourseID=item.studentCourseID,stdID=Model.Id })" class="btn btn-success">Approve</a>
+    <a href="@Url.Action("DelStdCourse","student", new {StudentCourseID=item.studentCourseID,stdID=Model.Id })" class="btn btn-danger">Reject</a>
+}
+                                            }
+                                            
+
+                                        </th>
+                                    }
+                                </tr>
+
+                                }
+                            </table>
+                        }
+                    </div>
+                    <div class="col-md-6">
+                        <img src="@Model.Person.Picture" height="200" width="200" class="img-thumbnail" />
+                    </div>
+                </div>
+            </div>
+
+           
+                <div class="panel-footer"></div>
+            
+
+        }
+       
+
+    </div>
+
+
+</div>
+

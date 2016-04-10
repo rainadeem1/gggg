@@ -1,0 +1,16 @@
+﻿ @model IEnumerable<SNS.Models.Mobile>
+
+
+@foreach (var item in Model)
+{
+    if (item.Title != "Port")
+    {
+        <div class="alert alert-info alert-dismissable">
+            <button type="button" data-id="@item.ID"  class="close del">×</button>
+
+            <h4 class="msg-title"><i class="icon fa fa-info"></i>@item.Title</h4>
+            @item.Message
+        </div>
+    }
+
+}

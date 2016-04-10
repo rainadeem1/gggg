@@ -1,0 +1,44 @@
+﻿@model IEnumerable< SNS.Models.sp_comments_Result>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Comments</h2>
+       
+        <div id="pan-comment">
+            @if (Model != null)
+            {
+
+                foreach (var item in Model)
+                {
+                    var person = SNS.DAL.PersonHandler.ID((int)item.PersonID);
+                    if (person != null)
+                    {
+                        <div class="alert alert-success alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <strong><img src="@person.Picture" height="50" width="50" class="img-rounded" /></strong> @person.FirstName @person.LastName <br />
+                            @item.Comment
+                        </div>
+                    }
+
+                }
+
+            }
+
+        </div>
+      
+
+
+
+        <form method="post" id="frm-comment">
+            <div class="form-group">
+                <label class="control-label" for="form-group-input">New Comment</label>
+                @Html.TextArea("Comment", new { @class = "form-control", placeholder = "Enter your comment", rows = "3" })
+                @Html.Hidden("PersonID",null, new {Value= ViewBag.personID })
+                @*<input type="hidden" value="@ViewBag.personID" name="PersonID" id="PersonID" />*@
+                <input type="hidden" value="" name="UploadID" id="UploadID" />
+            </div>
+            <input type="submit" value="Save" id="Save" class="btn btn-success pull-right" />
+        </form>
+    </div>
+  
+</div>

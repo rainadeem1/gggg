@@ -1,0 +1,60 @@
+﻿@model SNS.Models.Mobile
+
+<div class="modal-body">
+    <div>
+        @using (Html.BeginForm("SaveMessage", "Mobile", FormMethod.Post, new { id = "frm-send", enctype = "multipart/form-data" }))
+        {
+
+
+            @Html.HiddenFor(m => m.ID, new { id = "txtid" })
+
+           
+
+            <div class="form-group">
+                <label>Title</label>
+                <div class="input-group">
+                    @Html.TextBoxFor(m => m.Title, null, new { @class = "form-control", placeholder = "Enter ...", style = "width:500px;" })
+                </div><!-- /.input group -->
+            </div>
+            <div class="form-group">
+                <label>Message</label>
+                <div class="input-group">
+                    @Html.TextAreaFor(m => m.Message, new { @class = "form-control val", placeholder = "Enter ...", style = "width:500px;" })
+                    <div>
+                        <span id="chars">135</span> characters remaining
+                    </div> 
+                </div><!-- /.input group -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" id="btn-new-User">Save</button>
+
+            </div>
+        }
+    </div>
+</div>
+<script>
+    $(function () {
+
+        var maxLength = 135;
+        $('#Message').keyup(function () {
+            var length = $(this).val().length;
+            var length = maxLength - length;
+            $('#chars').text(length);
+        });
+
+        $('#frm-new').validate({ // initialize the plugin
+            rules: {
+                Title: {
+                    required: true,
+                },
+                Message: {
+                    required: true,
+                    minlength: 4,
+                    maxlength: 135,
+                },
+            },
+
+        });
+    });
+</script>

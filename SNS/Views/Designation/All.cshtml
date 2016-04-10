@@ -1,0 +1,70 @@
+﻿@model IEnumerable<SNS.Models.Designation>
+
+@{
+    ViewBag.Title = "All";
+}
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2 ">
+        <div class="panel panel-success">
+            <div class="panel-heading ui-draggable-handle">
+                <h3 class="panel-title">Designations</h3>
+            </div>
+           
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Title)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Description)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Title)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+                                <td>
+                                    <a href="@Url.Action("new","Designation", new {id=item.Id })" class="btn btn-default btn-rounded btn-sm"><span class="fa fa-pencil"></span></a>
+                                    <a href="@Url.Action("Delete","Designation", new {id=item.Id })" class="btn btn-danger btn-rounded btn-sm btn-del"><span class="fa fa-times"></span></a>
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+                <div class="panel-footer">
+                    <a href="@Url.Action("new","Designation")"  class="btn btn-primary pull-right">New</a>
+                   
+                </div>
+            
+        </div>
+
+
+    </div>
+</div>
+
+
+@section script{
+    <script src="~/Content/js/datatables/js/jquery.dataTables.js"></script>
+
+    <script>
+        $(function () {
+            $(".btn-del").click(function () {
+                var c = confirm("Do you want to Delete ?");
+                if (c == true) { }
+                else { return false; }
+            });
+
+            $(".table").dataTable();
+        });
+    </script>
+}

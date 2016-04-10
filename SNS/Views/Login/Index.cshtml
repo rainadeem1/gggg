@@ -1,0 +1,118 @@
+﻿@model SNS.Models.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en" class="body-full-height">
+<head>
+    <!-- META SECTION -->
+    <title>Student Notification System</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  
+    <!-- END META SECTION -->
+    <!-- CSS INCLUDE -->
+    <link href="~/Content/css/jquery/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/fontawesome/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" id="theme" href="~/Content/css/theme-default.css" />
+    <link href="~/Content/js/Validation/css/screen.css" rel="stylesheet" />
+    <!-- EOF CSS INCLUDE -->
+</head>
+<body>
+
+    <div class="login-container">
+        @if (SNS.DAL.Shared.Message != null)
+            {
+            <div class="alert alert-warning alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+               
+                @SNS.DAL.Shared.Message
+            </div>
+            SNS.DAL.Shared.Message = null;
+                }
+        <div class="login-box animated fadeInDown">
+           
+            <div class="login-body">
+                <div class="login-title"><strong>Welcome</strong>, Please Login</div>
+                @using (Html.BeginForm("Login", "Login", FormMethod.Post, new {id="frm-login", @class= "form-horizontal" })) {
+
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(m=>m.Email,null, new {@class= "form-control", placeholder = "Email" })
+                 
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            @Html.PasswordFor(m => m.Password,  new { @class = "form-control", placeholder = "Password" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            @Html.RadioButton("Type","Student")<span style="color:orangered;">Student</span>
+                          
+                             @Html.RadioButton("Type", "Faculity")<span style="color:orangered;">Faculty</span>
+                      
+                             </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                           
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-info btn-block">Log In</button>
+                        </div>
+                    </div>
+              
+                }
+            </div>
+            <div class="login-footer">
+                <div class="pull-left">
+                    &copy;
+                     @DateTime.Now
+                </div>
+                <div class="pull-right">
+                    
+                    <a href="@Url.Action("index","student")" target="_blank">
+                    
+                        <span style="color:white;"><b>Student SignUp</b></span>
+
+</a>
+                   
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script type="text/javascript" src="~/Content/js/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Content/js/plugins/jquery/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="~/Content/js/plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="~/Content/js/Validation/jquery.validate.js"></script>
+
+    <script>
+        $(function () {
+            $('#frm-login').validate({
+                rules: {
+                    Email: {
+                        required: true,
+                        email: true,
+                      
+                    },
+                    Password: {
+                        required: true,
+                    },
+                    Type: {
+                        required: true,
+                    },
+                },
+            });
+        });
+    </script>
+</body>
+</html>

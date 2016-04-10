@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b83ec01530c0448a9a6ab89b43b1e4a2" Name="Diagram1">
+        <EntityTypeShape EntityType="CourseMetarialModel.Cours" Width="1.5" PointX="6" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="CourseMetarialModel.Designation" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CourseMetarialModel.Faculty" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CourseMetarialModel.FacultyType" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CourseMetarialModel.Mobile" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CourseMetarialModel.Notification" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CourseMetarialModel.Person" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CourseMetarialModel.StudentCours" Width="1.5" PointX="5.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CourseMetarialModel.Student" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CourseMetarialModel.TeacherCours" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="CourseMetarialModel.UploadComment" Width="1.5" PointX="10.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CourseMetarialModel.UploadNotification" Width="1.5" PointX="10.5" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CourseMetarialModel.Upload" Width="1.5" PointX="8.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CourseMetarialModel.User" Width="1.5" PointX="3" PointY="15.625" IsExpanded="true" />
+        <AssociationConnector Association="CourseMetarialModel.FK_StudentCourses_Courses" ManuallyRouted="false" />
+        <AssociationConnector Association="CourseMetarialModel.FK_Uploads_Courses" ManuallyRouted="false" />
+        <AssociationConnector Association="CourseMetarialModel.FK_Faculties_Designations" ManuallyRouted="false" />
+        <AssociationConnector Association="CourseMetarialModel.FK_Faculties_FacultyTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="CourseMetarialModel.FK_Faculties_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="CourseMetarialModel.FK_TeacherCourses_Faculties" ManuallyRouted="false" />
+        <AssociationConnector Association="CourseMetarialModel.FK_Uploads_Faculties" ManuallyRouted="false" />
+        <AssociationConnector Association="CourseMetarialModel.FK_Notifications_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="CourseMetarialModel.FK_Students_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="CourseMetarialModel.FK_Users_Persons" ManuallyRouted="false" />
+        <AssociationConnector Association="CourseMetarialModel.FK_StudentCourses_Students" ManuallyRouted="false" />
+        <AssociationConnector Association="CourseMetarialModel.FK_UploadComments_Uploads" ManuallyRouted="false" />
+        <AssociationConnector Association="CourseMetarialModel.FK_UploadNotifications_Uploads" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
